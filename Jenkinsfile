@@ -20,7 +20,8 @@ pipeline {
         echo %newBuildno% 
         if(newBuildno NEQ oldBuildno) newSetup=true
         echo %newSetup%                 
-        if(%newSetup% EQU true) echo \'NewSetup Obtained\' else exit(1)'
+        if(%newSetup% EQU true) echo \'NewSetup Obtained\' else exit(1)
+        '''
       }
     }
 
