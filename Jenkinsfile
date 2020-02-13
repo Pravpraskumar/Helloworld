@@ -2,8 +2,10 @@ pipeline {
   agent any
   stages {
     stage('Check Setup') {
-      steps {
-        bat '''
+      parallel {
+        stage('Check Setup') {
+          steps {
+            bat '''
         echo \'Multiline\'                 
         echo \'Example\'                 
         for /f "tokens=1* delims=" %%a in (\'date /T\') do set datestr=%%a                 
@@ -22,6 +24,21 @@ pipeline {
         echo %newSetup%                 
         if(%newSetup% EQU true) echo \'NewSetup Obtained\' else exit(1)
         '''
+          }
+        }
+
+        stage('Stage1Pa') {
+          steps {
+            echo 'Stage Parallel'
+          }
+        }
+
+      }
+    }
+
+    stage('Stage-3') {
+      steps {
+        echo 'Success Stage1pa'
       }
     }
 
