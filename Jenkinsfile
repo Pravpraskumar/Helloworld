@@ -35,6 +35,7 @@ pipeline {
                     subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]",
                     body: "Build URL: ${env.BUILD_URL}.\n\n"
                     )
+        }
 
       }
       steps {
