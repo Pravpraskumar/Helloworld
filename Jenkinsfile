@@ -30,11 +30,7 @@ pipeline {
     stage('Stage-3') {
       post {
         always {
-          emailext (
-                    to: 'info@kitconcept.com',
-                    subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]",
-                    body: "Build URL: ${env.BUILD_URL}.\n\n"
-                    )
+          emailext(to: 'info@kitconcept.com', subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]", body: "Build URL: ${env.BUILD_URL}.\n\n")
         }
 
       }
