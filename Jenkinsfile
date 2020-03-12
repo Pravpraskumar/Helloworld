@@ -28,16 +28,14 @@ pipeline {
         }
 
         stage('Stage1Pa') {
+          post {
+            always {
+              mail(to: 'PraveenKumar.Kuppili@hexagon.com', subject: "Automatic DB Setup: ${currentBuild.result}", body: "DB Rollback Successfull \n ${env.BUILD_URL}")
+            }
+
+          }
           steps {
             echo 'Stage Parallel'
-          }
-          post {
-                always {
-                    // publish mail
-                    mail to: 'PraveenKumar.Kuppili@hexagon.com',
-                    subject: "Automatic DB Setup: ${currentBuild.result}",
-                    body: "DB Rollback Successfull \n ${env.BUILD_URL}"
-                }
           }
         }
 
