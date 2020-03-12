@@ -30,10 +30,11 @@ pipeline {
     stage('Stage-3') {
       post {
         always {
-          emailext(body: '''<pre>
-${FILE, path="C:/Program Files (x86)/Jenkins/workspace/Unit test Result Mailer/report.html"}
-</pre>''', mimeType: 'text/html', subject: "[Jenkins] ${jobName}", to: 'PraveenKumar.Kuppili@Hexagon.com')
-        }
+          emailext (
+                    to: 'info@kitconcept.com',
+                    subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]",
+                    body: "Build URL: ${env.BUILD_URL}.\n\n"
+                    )
 
       }
       steps {
