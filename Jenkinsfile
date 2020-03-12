@@ -38,6 +38,7 @@ pipeline {
                     subject: "Automatic DB Setup: ${currentBuild.result}",
                     body: "DB Rollback Successfull \n ${env.BUILD_URL}"
                 }
+          }
         }
 
       }
