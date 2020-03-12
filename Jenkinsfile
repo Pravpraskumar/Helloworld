@@ -30,7 +30,8 @@ pipeline {
     stage('Stage-3') {
       post {
         always {
-          emailext(to: 'PraveenKumar.Kuppili@Hexagon.com', subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]", body: "Build URL: ${env.BUILD_URL}.\n\n")
+          emailext(to: 'PraveenKumar.Kuppili@Hexagon.com', subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]", 
+                   body: "<pre>${FILE, path='C:/DB_Install/report.html'}</pre>")
         }
 
       }
