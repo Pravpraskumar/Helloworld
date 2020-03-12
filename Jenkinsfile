@@ -43,9 +43,21 @@ pipeline {
     }
 
     stage('Stage-3') {
+      post {
+            always {
+              emailext body: '''<pre>
+${FILE, path="C:/Program Files (x86)/Jenkins/workspace/Unit test Result Mailer/report.html"}
+</pre>''',
+        mimeType: 'text/html',
+        subject: "[Jenkins] ${jobName}",
+        to: "PraveenKumar.Kuppili@Hexagon.com"
+            }
+
+          }
       steps {
         echo 'Success Stage1pa'
       }
+     
     }
 
   }
