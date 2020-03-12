@@ -30,7 +30,7 @@ pipeline {
         stage('Stage1Pa') {
           post {
             always {
-              mail(to: 'PraveenKumar.Kuppili@hexagon.com', subject: "Automatic DB Setup: ${currentBuild.result}", body: '${FILE, path="C:\\DB_Install\\report.html"}')
+              mail(to: 'PraveenKumar.Kuppili@hexagon.com', subject: "Automatic DB Setup: ${currentBuild.result}", body: readFile(file:"C:\\DB_Install\\report.html")
             }
 
           }
