@@ -34,7 +34,7 @@ pipeline {
           post {
                 always {
                     // publish mail
-                    mail to: 'PraveenKumar.Kuppili@hexagon.com'
+                    mail to: 'PraveenKumar.Kuppili@hexagon.com',
                     subject: "Automatic DB Setup: ${currentBuild.result}",
                     body: "DB Rollback Successfull \n ${env.BUILD_URL}"
                 }
