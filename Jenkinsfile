@@ -29,7 +29,7 @@ pipeline {
     stage('Stage-3') {
       post {
         always {
-          emailext(to: 'PraveenKumar.Kuppili@Hexagon.com', subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]", body: '${FILE, path="C:/DB_Install/logs/${env.LOG_FOLDER}/report.html"}', mimeType: 'text/html')
+          emailext(to: 'PraveenKumar.Kuppili@Hexagon.com', subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]", body: '${FILE, path="C:/DB_Install/logs/20200313/report.html"}', mimeType: 'text/html')
         }
 
       }
