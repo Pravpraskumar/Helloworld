@@ -30,8 +30,10 @@ pipeline {
     stage('Stage-3') {
       post {
         always {
+          script {
           env.TEST = bat(script:'Call test.bat '+"${currentBuild.result}", label: 'now');
           echo "${env.TEST}"
+          }
           emailext(to: 'PraveenKumar.Kuppili@Hexagon.com', subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]", body: '${FILE, path="C:/DB_Install/logs/'+"${env.LOG_FOLDER}"+'/report.html"}', mimeType: 'text/html')
         }
 
