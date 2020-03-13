@@ -32,6 +32,7 @@ pipeline {
       }
       steps {
         echo 'Success Stage1pa'
+        bat(script: 'test.bat', label: 'test')
       }
     }
 
