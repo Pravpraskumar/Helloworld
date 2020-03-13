@@ -12,7 +12,7 @@ pipeline {
             script {
               env.LOG_FOLDER = "20200313"
               echo "${env.LOG_FOLDER}"
-              env.Textbody = "${FILE, path="C:/DB_Install/logs/${env.LOG_FOLDER}/report.html"}"
+              env.Textbody = "${FILE, path=\"C:/DB_Install/logs/${env.LOG_FOLDER}/report.html\"}"
             }
 
           }
@@ -30,7 +30,7 @@ pipeline {
     stage('Stage-3') {
       post {
         always {
-          emailext(to: 'PraveenKumar.Kuppili@Hexagon.com', subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]", body: "${FILE, path='C:/DB_Install/logs/${env.LOG_FOLDER}/report.html'}", mimeType: 'text/html')
+          emailext(to: 'PraveenKumar.Kuppili@Hexagon.com', subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]", body: "${FILE, path=\"C:/DB_Install/logs/${env.LOG_FOLDER}/report.html\"}", mimeType: 'text/html')
         }
 
       }
