@@ -12,7 +12,7 @@ pipeline {
             script {
               env.LOG_FOLDER = "20200313"
               echo "${env.LOG_FOLDER}"
-              env.TEST = bat(script:'Call test.bat '+"${env.LOG_FOLDER}", label: 'now');
+              env.TEST = bat(script:'Call test.bat '+"${currentBuild.result}", label: 'now');
               echo "${env.TEST}"
             }
 
