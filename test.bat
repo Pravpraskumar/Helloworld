@@ -1,1 +1,1 @@
-echo %[${currentBuild.result}]%
+echo [${currentBuild.result}]
