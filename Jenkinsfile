@@ -4,15 +4,15 @@ pipeline {
     stage('Check Setup') {
       parallel {
         stage('Check Setup') {
-          script{
-          env.LOG_FOLDER = "20200313"
-            echo "${env.LOG_FOLDER}"
-            }
           steps {
             bat '''
         echo \'Multiline\'                 
         echo \'Example\'                 
         '''
+            script{
+          env.LOG_FOLDER = "20200313"
+            echo "${env.LOG_FOLDER}"
+            }
           }
         }
 
