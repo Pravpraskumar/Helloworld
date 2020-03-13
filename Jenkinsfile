@@ -9,10 +9,11 @@ pipeline {
         echo \'Multiline\'                 
         echo \'Example\'                 
         '''
-            script{
-          env.LOG_FOLDER = "20200313"
-            echo "${env.LOG_FOLDER}"
+            script {
+              env.LOG_FOLDER = "20200313"
+              echo "${env.LOG_FOLDER}"
             }
+
           }
         }
 
