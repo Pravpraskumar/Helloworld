@@ -1,1 +1,3 @@
-echo %currentBuild.result%
+SET STAT="${currentBuild.result}"
+
+echo %STAT%
