@@ -32,7 +32,7 @@ pipeline {
           script {
             env.TEST = bat(script:'Call test.bat '+"${currentBuild.result}", label: 'now');
             echo "${env.TEST}"
-            def newname="${env.LOG_FOLDER}.trim()"
+            def newname="${env.LOG_FOLDER}".trim()
             echo newname
           }
 
