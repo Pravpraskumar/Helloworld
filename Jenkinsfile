@@ -6,7 +6,7 @@ pipeline {
         stage('Check Setup') {
           when {
             expression {
-              return "false"
+              return false
             }
 
           }
