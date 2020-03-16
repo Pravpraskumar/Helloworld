@@ -36,7 +36,7 @@ pipeline {
             echo newname
           }
 
-          emailext(to: 'PraveenKumar.Kuppili@Hexagon.com', subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]", body: '${FILE, path="C:/DB_Install/logs/'+"${newname}"+'/report.html"}', mimeType: 'text/html')
+          emailext(to: 'PraveenKumar.Kuppili@Hexagon.com', subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]", body: '${FILE, path="C:/DB_Install/logs/'+"${env.LOG_FOLDER}"+'/report.html"}', mimeType: 'text/html')
         }
 
       }
