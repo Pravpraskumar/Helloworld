@@ -1,11 +1,12 @@
 pipeline {
   agent any
   stages {
-    
     stage('Check Setup') {
       parallel {
         stage('Check Setup') {
-             when { environment name: 'Run_Setups', value: 'true' }
+          when {
+            environment name: 'Run_Setups', value: 'true'
+          }
           steps {
             bat '''
         echo \'Multiline\'                 
