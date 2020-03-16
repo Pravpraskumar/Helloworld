@@ -53,4 +53,7 @@ pipeline {
     }
 
   }
+  environment {
+    Run_Setups = 'true'
+  }
 }
