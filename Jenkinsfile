@@ -32,8 +32,8 @@ pipeline {
           script {
             env.TEST = bat(script:'Call test.bat '+"${currentBuild.result}", label: 'now');
             echo "${env.TEST}"
-            def newname="${env.LOG_FOLDER}"
-            echo newname.trim()
+            def newname="${env.LOG_FOLDER}.trim()"
+            echo newname
           }
 
           emailext(to: 'PraveenKumar.Kuppili@Hexagon.com', subject: "${env.JOB_NAME} #${env.BUILD_NUMBER} [${currentBuild.result}]", body: '${FILE, path="C:/DB_Install/logs/'+"${newname}"+'/report.html"}', mimeType: 'text/html')
