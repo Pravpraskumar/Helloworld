@@ -18,6 +18,7 @@ pipeline {
             script {
               env.LOG_FOLDER = "20200313 "
               echo "${env.LOG_FOLDER}"
+              echo "${env.Run_Setups}"
             }
 
           }
