@@ -6,7 +6,7 @@ pipeline {
         stage('Check Setup') {
           when {
             expression {
-              return Run_Setups
+              return "${env.Run_Setups}"
             }
 
           }
