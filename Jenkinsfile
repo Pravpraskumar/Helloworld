@@ -4,6 +4,12 @@ pipeline {
     stage('Check Setup') {
       parallel {
         stage('Check Setup') {
+          when {
+        expression {
+          return "${env.Run_Setups}"
+        }
+
+      }
           steps {
             bat '''
         echo \'Multiline\'                 
