@@ -7,7 +7,7 @@ pipeline {
             environment name: 'Run_Setups', value: 'false'
         }
         steps {
-            if(true){
+            if true{
                 isValidationSuccess = false;
             }
         }
