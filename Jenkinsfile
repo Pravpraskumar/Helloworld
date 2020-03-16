@@ -1,26 +1,11 @@
-def isValidationSuccess = true
 pipeline {
   agent any
   stages {
-    stage("Validate") {
-        when {
-            environment name: 'Run_Setups', value: 'false'
-        }
-        steps {
-            if true{
-                isValidationSuccess = false;
-            }
-        }
-    }
+    
     stage('Check Setup') {
       parallel {
         stage('Check Setup') {
-          when {
-            expression {
-              return isValidationSuccess
-            }
-
-          }
+             when { environment name: 'Run_Setups', value: 'true' }
           steps {
             bat '''
         echo \'Multiline\'                 
