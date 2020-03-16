@@ -55,6 +55,6 @@ pipeline {
 
   }
   environment {
-    Run_Setups = 'true'
+    Run_Setups = 'false'
   }
 }
