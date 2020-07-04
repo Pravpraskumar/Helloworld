@@ -2,7 +2,7 @@ pipeline {
   agent any
   stages {
     stage('Check Setup') {
-      parallel {
+      parallel (
         'Test1' : {
         stage('Check Setup') {
           when {
@@ -36,7 +36,7 @@ pipeline {
         }
 
       }
-    }
+    )
 
     stage('Stage-3') {
       post {
