@@ -3,22 +3,31 @@ pipeline {
   stages {
     stage('Check Setup') {
       parallel {
-        stage('Check Setup') {
-          when {
-            environment name: 'Run_Setups', value: 'true'
-          }
-          steps {
-            bat '''
-        echo \'Multiline\'                 
-        echo \'Example\'                 
-        '''
-            script {
-              env.LOG_FOLDER = "20200313 "
-              echo "${env.LOG_FOLDER}"
-              echo "${env.Run_Setups}"
-            }
+        stage('Parcheck'){
+          stages{
+            stage('Check Setup') {
+              when {
+                environment name: 'Run_Setups', value: 'true'
+              }
+              steps {
+                bat '''
+                   echo \'Multiline\'                 
+                    echo \'Example\'                 
+                    '''
+                script {
+                env.LOG_FOLDER = "20200313 "
+                echo "${env.LOG_FOLDER}"
+                echo "${env.Run_Setups}"
+              }
 
           }
+        }
+        stage('test Parallel'){
+            steps {
+              echo 'Nested Parallel test'
+            }
+        }
+      }
         }
           
 
