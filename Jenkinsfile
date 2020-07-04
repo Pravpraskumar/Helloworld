@@ -2,8 +2,7 @@ pipeline {
   agent any
   stages {
     stage('Check Setup') {
-      parallel (
-        'Test1' : {
+      parallel {
         stage('Check Setup') {
           when {
             environment name: 'Run_Setups', value: 'true'
@@ -21,13 +20,7 @@ pipeline {
 
           }
         }
-          stage('test Parallel'){
-            steps {
-            echo 'Nested Parallel test'
-          }
-          }
           
-        }
 
         stage('Stage1Pa') {
           steps {
@@ -36,7 +29,7 @@ pipeline {
         }
 
       }
-    )
+    }
 
     stage('Stage-3') {
       post {
