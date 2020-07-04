@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('Check Setup') {
       parallel {
+        'Test1' : {
         stage('Check Setup') {
           when {
             environment name: 'Run_Setups', value: 'true'
@@ -19,6 +20,13 @@ pipeline {
             }
 
           }
+        }
+          stage('test Parallel'){
+            steps {
+            echo 'Nested Parallel test'
+          }
+          }
+          
         }
 
         stage('Stage1Pa') {
