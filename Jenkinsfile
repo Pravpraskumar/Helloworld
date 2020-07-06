@@ -6,9 +6,6 @@ pipeline {
         stage('Parcheck'){
           stages{
             stage('Check Setup') {
-              when {
-                environment name: 'Run_Setups', value: 'true'
-              }
               steps {
                 bat '''
                    echo \'Multiline\'                 
