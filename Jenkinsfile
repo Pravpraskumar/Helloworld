@@ -19,7 +19,21 @@ pipeline {
 
           }
         }
-        stage('test Parallel'){
+        stage('test Parallel-1'){
+          parallel{
+            stage('test-inner-1'){
+              steps {
+                echo 'Nested Parallel intest-1'
+              }
+            }
+            stage('test-inner-2'){
+              steps {
+                echo 'Nested Parallel intest-2'
+              }
+            }
+          }
+        }
+         stage('test Parallel-2'){
             steps {
               echo 'Nested Parallel test'
             }
